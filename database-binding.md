@@ -10,7 +10,7 @@ cf create-service <SERVICE> <PLAN> <SERVICE_INSTANCE_NAME>
 
 To delete a service, use the delete-service command.  Pivotal Cloud Foundry will not allow the deletion of services with active application bindings; the services must first be unbound from all apps using the cf unbind-service command.
 
-MySQL
+The following process will create and bind a MySQL database service to an application.  Binding a PostgreSQL or MongoDB service follows a similar process, as do other services.
 
 The MySQL marketplace service is cleardb.  The cleardb service offerings include spark, boost, amp, and shock.  Of these, spark is the trial service, suitable for a demo application such as version 1 of the CW Portal.
 
@@ -18,4 +18,17 @@ The following command creates a cleardb instance on the spark (free) plan and ma
 
 cf cs cleardb spark person-mysql
 
-Service instance initialization takes a few minutes.  To check the status of the new service, access the Services tab in your space within the Pivotal Web Services online console (console.run.pivotal.io), or run the cf services command in the CLI.  The web console tends to update faster than cf services.
+Service instance provisioning takes a few minutes.  To check the status of the new service, access the Services tab in your space within the Pivotal Web Services online console (console.run.pivotal.io), or run the cf services command in the CLI.  The web console tends to update faster than the CLI.
+
+There are multiple ways to bind services to an active application.
+
+The cf bind-service command accomplishes a manual binding.  The standard form of this command is:
+
+cf bind-service <APP_NAME> <SERVICE_INSTANCE_NAME>
+
+Its corollary is cf unbind-service:
+
+cf unbind-service <APP_NAME> <SERVICE_INSTANCE_NAME>
+
+
+under construction, include manifest-based binding and service keys...
