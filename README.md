@@ -15,6 +15,3 @@ Of course you will then be asked for a password; it is your password you used wh
 
 It's also highly encouraged to create your own trial org on Pivotal Web Services, for your own personal learning purposes.  Trial orgs are valid for one year or until you upgrade to a paid plan (which you only need to do if you plan on using above 2GB of memory at a time, i.e. multiple microservices or many instances).  You can log into your own personal org/space by substituting your org/space names for the -o and -s parameters in the login command.
 
-
-
-This document is under construction...
