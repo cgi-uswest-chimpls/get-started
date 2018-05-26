@@ -63,4 +63,16 @@ When you push an application using the manifest, the services will be auto-bound
 
 ## Service Keys
 
-under construction...
+From time to time it is useful to connect entities outside Cloud Foundry to a Cloud Foundry service.  For example, one may wish to populate a cleardb MySQL instance via MySQL Workbench on a local PC.
+
+In order to create a service key, use the `create-service-key` command.  The example below will create a service key named `person-mysql-key` for a service named `person-mysql`.
+
+`cf create-service-key person-mysql person-mysql-key`
+
+To list service keys for a given service instance, use the `cf service-keys` command.
+
+To get credentials for a service key, use `cf service-key`.  For example, to show credentials for the `person-mysql-key` created above, use the following command:
+
+`cf service-key person-mysql person-mysql-key`
+
+
