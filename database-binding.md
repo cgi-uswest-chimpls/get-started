@@ -4,10 +4,14 @@ The standard Pivotal Cloud Foundry service marketplace contains third-party serv
 
 The following process will create and bind a MySQL database service to an application.  Binding a PostgreSQL or MongoDB service follows a similar process, as do other non-database marketplace services.
 
-[Creating a Database Service](get-started/database-binding.md#creating-a-database-service)
-[Deleting a Service](get-started/database-binding.md#deleting-a-service)
-[Binding and Unbinding Services via the CLI](get-started/database-binding.md#binding-and-unbinding-services-via-the-CLI)
-[Binding Services via the Application Manifest](get-started/database-binding.md#binding-services-via-the-application-manifest)
+[Creating a Database Service](./database-binding.md#creating-a-database-service)
+
+[Deleting a Service](./database-binding.md#deleting-a-service)
+
+[Binding and Unbinding Services via the CLI](./database-binding.md#binding-and-unbinding-services-via-the-cli)
+
+[Binding Services via the Application Manifest](./database-binding.md#binding-services-via-the-application-manifest)
+
 Service Keys
 
 ## Creating a Database Service
