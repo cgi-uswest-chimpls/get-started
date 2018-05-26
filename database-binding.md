@@ -4,11 +4,13 @@ The standard Pivotal Cloud Foundry service marketplace contains third-party serv
 
 The following process will create and bind a MySQL database service to an application.  Binding a PostgreSQL or MongoDB service follows a similar process, as do other non-database marketplace services.
 
-## Creating the Database Service
 
-All marketplace service bindings use the cf create-service, or cf cs, command.  For detailed documentation on this command, consult the Cloud Foundry help using `cf cs -h`.
 
-The standard form of the create-service command is:
+## Creating a Database Service
+
+All marketplace service bindings use the `cf create-service`, or `cf cs`, command.  For detailed documentation on this command, consult the Cloud Foundry help using `cf cs -h`.
+
+The standard form of the `create-service` command is:
 
 `cf create-service <SERVICE> <PLAN> <SERVICE_INSTANCE_NAME>`
 
@@ -20,11 +22,13 @@ The following command creates a cleardb instance on the spark (free) plan and ma
 
 Service instance provisioning takes a few minutes.  To check the status of the new service, access the Services tab in your space within the Pivotal Web Services online console (console.run.pivotal.io), or run the `cf services` command in the CLI.  The web console tends to update faster than the CLI.
 
+## Deleting a Service
+
 To delete a service, use the `delete-service` command.  Pivotal Cloud Foundry will not allow the deletion of services with active application bindings; the services must first be unbound from all apps using the `cf unbind-service` command.
 
-## Binding and Unbinding Services
+## Binding and Unbinding Services via the CLI
 
-There are multiple ways to bind services to an active application.
+There are multiple ways to bind services to an active application.  The service binding sets fields related to service in the `VCAP_SERVICES` environment variable within the application, exposing the service to the application.
 
 The `cf bind-service` command accomplishes a manual binding.  The standard form of this command is:
 
@@ -34,5 +38,6 @@ Its corollary is `cf unbind-service`:
 
 `cf unbind-service <APP_NAME> <SERVICE_INSTANCE_NAME>`
 
+## Binding Services via the Application Manifest
 
 under construction, include manifest-based binding and service keys...
