@@ -52,12 +52,12 @@ Including service bindings in the application manifest allows for automatic bind
 
 To bind services via the manifest, include the following property in your manifest yml file:
 
-`
+```
     services: 
       - <service 1 name>
       - <service 2 name>
       - ...
-`
+```
 
 When you push an application using the manifest, the services will be auto-bound at the beginning of the push, before your application container is created.
 
