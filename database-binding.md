@@ -48,4 +48,19 @@ Its corollary is `cf unbind-service`:
 
 ## Binding Services via the Application Manifest
 
-under construction, include manifest-based binding and service keys...
+Including service bindings in the application manifest allows for automatic binding each time the application is pushed to Cloud Foundry.  When iterating rapidly, this feature is useful to avoid repeated manual binding.
+
+To services via the manifest, include the following property in your manifest yml file:
+
+`
+    services: 
+      - <service 1 name>
+      - <service 2 name>
+      - ...
+`
+
+When you push an application using the manifest, the services will be auto-bound at the beginning of the push, before your application container is created.
+
+## Service Keys
+
+under construction...
