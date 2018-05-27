@@ -75,4 +75,4 @@ To get credentials for a service key, use `cf service-key`.  For example, to sho
 
 `cf service-key person-mysql person-mysql-key`
 
-
+This will return parameters for service access, including a username/password that can be used to authenticate from an external client such as MySQL Workbench.
