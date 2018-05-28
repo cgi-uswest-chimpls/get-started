@@ -1,4 +1,4 @@
-# How to Build a Cloud Foundry Microservice for the CW Portal
+# How to Build a Cloud Foundry Microservice Project for the CW Portal
 
 In principle, CW Portal microservices can be built on any platform provided they expose appropriate endpoints.  This guide will walk through setting up a microservice on two platforms - Java with Spring Boot, and .NET.
 
@@ -40,7 +40,21 @@ To sync your project and eliminate the phantom "errors" you can right-click the 
 
 ### Build the Project
 
+The project may be built from within STS through the following steps.
 
+Open the Gradle Tasks view.  Find your project in the folder list and navigate to build/build.  Right-click and select Run Gradle Tasks.
+
+If you have a JRE installed which is not a JDK, the build may fail due to using the JRE as its Java Home and failing to find tools.jar.  To set the JRE manually, you can navigate to the build task, right-click and select Open Gradle Run Configurations, and select the correct Java Home (a full JDK, not a JRE) via the Java Home tab.  Unfortunately I have not yet found how to set the Java Home globally in your STS installation so this guide requires that you set Java Home on a project-by-project basis.
+
+### Viewing Unit Test Results
+
+The Spring Boot project comes with one test class pre-packaged.  If you have not specified any configuration yet, the `contextLoads` unit test will fail.  To view the test results, follow the file link in your `BUILD FAILED` message.  The default location is:  `\<project folder\build\reports\tests\test\index.html.
+
+The `contextLoads` test attempts to load all application dependencies in a runtime environment, so if configuration is missing this test will often catch it.
+
+### Adding Bootstrap Configuration
+
+### Adding Spring Dependencies
 
 ## How to Build a .NET Microservice 
 
