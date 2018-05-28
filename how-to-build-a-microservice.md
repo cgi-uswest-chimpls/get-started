@@ -1,4 +1,4 @@
-#How to Build a Cloud Foundry Microservice for the CW Portal
+# How to Build a Cloud Foundry Microservice for the CW Portal
 
 In principle, CW Portal microservices can be built on any platform provided they expose appropriate endpoints.  This guide will walk through setting up a microservice on two platforms - Java with Spring Boot, and .NET.
 
@@ -29,6 +29,8 @@ The options you select will vary based on what you need enabled in your microser
 Once you have selected all options you need, click Generate Project.  Your project zip file will automatically be downloaded.
 
 ### Import a Spring Boot Project into STS
+
+Within STS, open File...Import.  For the import wizard, select Gradle...Existing Gradle Project.  Click Finish to begin the import.
 
 ### Build the Project
 
