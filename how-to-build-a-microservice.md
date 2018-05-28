@@ -4,7 +4,7 @@ In principle, CW Portal microservices can be built on any platform provided they
 
 ## How to Build a Java Microservice with Spring Boot
 
-This guide assumes you have [Spring Tool Suite](https://spring.io/tools) installed locally as your IDE.
+This guide assumes you have [Spring Tool Suite](https://spring.io/tools) installed locally as your IDE.  It also assumes you have integrated Gradle.  How to integrate Gradle into your STS instance is the topic of another guide.
 
 For this project all microservice apps will be built using Gradle.  It is also possible to build with Maven.
 
@@ -32,7 +32,15 @@ Once you have selected all options you need, click Generate Project.  Your proje
 
 Within STS, open File...Import.  For the import wizard, select Gradle...Existing Gradle Project.  Click Finish to begin the import.
 
+### How to Sync your Gradle Project with STS
+
+When you import your project, you may find you have a buildable project which still is marked by STS as containing errors.  This is because Gradle does not automatically update the Eclipse classpath with its dependency jar files.
+
+To sync your project and eliminate the phantom "errors" you can right-click the project in Package Explorer and navigate to Gradle...Refresh Gradle Project.
+
 ### Build the Project
+
+
 
 ## How to Build a .NET Microservice 
 
