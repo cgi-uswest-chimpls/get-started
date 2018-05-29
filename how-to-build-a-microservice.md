@@ -54,6 +54,38 @@ The `contextLoads` test attempts to load all application dependencies in a runti
 
 ### Adding Bootstrap Configuration
 
+Go to your project's src/main/resources folder.  Delete `application.properties`.  Create a new file and name it `bootstrap.yml`.  [YAML](https://en.wikipedia.org/wiki/YAML) is a human-readable standard used for configuration files in the cloud ecosystem.  Precise syntax and indenting are important in YAML, and configuration issues are often resolved by fixing an incorrectly indented line or adding proper spacings.
+
+Add the following configuration to the new file:
+
+```
+---
+
+spring:
+  application:
+    name: <YOUR MICROSERVICE NAME>
+  cloud:
+    config:
+      uri: ${vcap.services.cw-portal-config-server-encrypted.credentials.uri:http://localhost:8888}
+      
+  security:
+    user:
+      name: <A USER NAME>
+      password: <A PASSWORD>  
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+```
+
+This introduces the following configuration elements:
+
+* An application name
+* The URI of the configuration server service.  Per the [12 factors](https://12factor.net/) we [store configuration in the environment](https://12factor.net/config).  Thus we can change configuration without changing code, and all that is required to pick up new configuration files is an application restart.
+* Basic authentication.  Simply hardcoding a username and password is a wholly unacceptable practice for a production application but will serve well to give our demo application the minimum of security while we build out features.
+* Database initialization for Hibernate, useful for when we later [bind a database service](./database-binding.md).
+
+
 ### Adding Spring Dependencies
 
 ## How to Build a .NET Microservice 
