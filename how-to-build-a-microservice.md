@@ -23,7 +23,7 @@ For Artifact, enter the name of your microservice, which should be a one-word de
 The options you select will vary based on what you need enabled in your microservice, but all CW Portal Spring microservices will require at least the following:
 
 * Core - Spring Security
-* SQL - JPA and a JDBC driver for your database, or NoSQL as needed
+* SQL - JPA, H2 (for local unit tests only), and a JDBC driver for your database; or NoSQL as needed
 * Pivotal Cloud Foundry - Config Client (PCF) and Service Registry (PCF)
 
 Once you have selected all options you need, click Generate Project.  Your project zip file will automatically be downloaded.
@@ -48,7 +48,7 @@ If you have a JRE installed which is not a JDK, the build may fail due to using 
 
 ### Viewing Unit Test Results
 
-The Spring Boot project comes with one test class pre-packaged.  If you have not specified any configuration yet, the `contextLoads` unit test will fail.  To view the test results, follow the file link in your `BUILD FAILED` message.  The default location is:  `\<project folder\build\reports\tests\test\index.html.
+The Spring Boot project comes with one test class pre-packaged.  If you have not specified any configuration yet, the `contextLoads` unit test will fail.  To view the test results, follow the file link in your `BUILD FAILED` message.  The default location is:  `\<project folder\build\reports\tests\test\index.html.`
 
 The `contextLoads` test attempts to load all application dependencies in a runtime environment, so if configuration is missing this test will often catch it.
 
@@ -81,12 +81,11 @@ spring:
 This introduces the following configuration elements:
 
 * An application name
-* The URI of the configuration server service.  Per the [12 factors](https://12factor.net/) we [store configuration in the environment](https://12factor.net/config).  Thus we can change configuration without changing code, and all that is required to pick up new configuration files is an application restart.
+* The URI of the configuration server service.  Per the [12 factors](https://12factor.net/) we [store configuration in the environment](https://12factor.net/config).  Thus we can change configuration without changing code, and all that is required to pick up new configuration files is an application restart.  If no cloud service uri is found in the environment (such as in local automated unit testing) then a local instance is created at `localhost:8888`.
 * Basic authentication.  Simply hardcoding a username and password is a wholly unacceptable practice for a production application but will serve well to give our demo application the minimum of security while we build out features.
 * Database initialization for Hibernate, useful for when we later [bind a database service](./database-binding.md).
 
-
-### Adding Spring Dependencies
+At this point, when you execute the Gradle `build` task, it should succeed including the `contextLoads` unit test.  There may be stack traces involving the Eureka service.  Registering your service as a Eureka client is the topic of another guide.
 
 ## How to Build a .NET Microservice 
 
