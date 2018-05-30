@@ -12,7 +12,7 @@ The following process will create and bind a MySQL database service to an applic
 
 [Binding Services via the Application Manifest](./database-binding.md#binding-services-via-the-application-manifest)
 
-Service Keys
+[Service Keys](./database-binding.md#service-keys)
 
 ## Creating a Database Service
 
