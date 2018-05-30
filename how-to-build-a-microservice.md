@@ -8,9 +8,21 @@ This guide assumes you have [Spring Tool Suite](https://spring.io/tools) install
 
 For this project all microservice apps will be built using Gradle.  It is also possible to build with Maven.
 
+[Create a Spring Boot Project](./how-to-build-a-microservice.md#create-a-spring-boot-project)
+
+[Import a Spring Boot Project into STS](./how-to-build-a-microservice.md#import-a-spring-boot-project-into-sts)
+
+[How to Sync your Gradle Project with STS](./how-to-build-a-microservice.md#how-to-sync-your-gradle-project-with-sts)
+
+[Build the Project](./how-to-build-a-microservice.md#build-the-project)
+
+[Viewing Unit Test Results](./how-to-build-a-microservice.md#viewing-unit-test-results)
+
+[Adding Bootstrap Configuration](./how-to-build-a-microservice.md#adding-bootstrap-configuration)
+
 ### Create a Spring Boot Project
 
-Go to the [String Initializr](https://start.spring.io) site.  This helpful site will create a new project with options to include a number of common dependencies.
+Go to the [Spring Initializr](https://start.spring.io) site.  This helpful site will create a new project with options to include a number of common dependencies.
 
 Find the "Switch to the full version" link and click it to open the full suite of options.
 
@@ -29,6 +41,8 @@ The options you select will vary based on what you need enabled in your microser
 Once you have selected all options you need, click Generate Project.  Your project zip file will automatically be downloaded.
 
 ### Import a Spring Boot Project into STS
+
+Extract your project zip file into the folder from which you intend to push it to GitHub later.
 
 Within STS, open File...Import.  For the import wizard, select Gradle...Existing Gradle Project.  Click Finish to begin the import.
 
