@@ -24,3 +24,5 @@ It's also highly encouraged to create your own trial org on Pivotal Web Services
 [How to Create and Bind a Database in Cloud Foundry](./database-binding.md)
 
 [Pushing a Microservice to Cloud Foundry](./pushing-a-microservice.md)
+
+[Rest Configuration and JPA](./rest-configuration-and-jpa.md)

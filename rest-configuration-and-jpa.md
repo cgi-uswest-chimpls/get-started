@@ -1,10 +1,10 @@
 The goal of a CW Portal microservice is to provide a set of related endpoints which provide access to, and change data in, an associated database.  In order to achieve this goal, an app will need to be configured to expose REST endpoints and query its database service.
 
-##Adding REST Configuration
+## Adding REST Configuration
 
 In order to configure your application to provide REST endpoints, you need to add a `RESTConfiguration` class, an application controller, and one or more objects.
 
-###Object and Repository
+### Object and Repository
 
 For each table you intend to access from this microservice, you will need a persistence entity object.  This object must have the `@Entity` mapping.
 
@@ -24,7 +24,7 @@ Also create a repository interface.  This interface exposes query methods to the
 
 You may query using method names or custom queries; see [Section 2.4 of the Spring JPA documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details) for details.
 
-###RestConfiguration
+### RestConfiguration
 
 Before proceeding, make sure your `build.gradle` file contains the dependency `compile('org.springframework.boot:spring-boot-starter-data-rest')` and re-sync.
 
@@ -51,7 +51,7 @@ public class RestConfiguration extends RepositoryRestConfigurerAdapter {
 }
 ```
 
-###Application Controller
+### Application Controller
 
 Finally, you need to pull query information to expose in an endpoint.  Your application controller can do this.
 
