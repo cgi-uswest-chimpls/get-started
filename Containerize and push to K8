@@ -1,0 +1,53 @@
+Include Dockerfile in the root
+
+
+Run your app locally
+1. Log on to GCP and open up cloud shell
+2. Clone a git repository
+    $git clone https://github.com/cgi-uswest-chimpls/providerDetail.git
+3. Verify that project got cloned
+    $ls -lrt
+4. Change the read/write rights on gradlew
+    $chmod +x gradlew
+5. Navigate to project root and build the project
+    $./gradlew clean build
+6. Navigate to directory where build jar is and rename to a name with all lower case letters
+    $mv providerDetail-0.0.1-SNAPSHOT.jar providerdetail.jar
+7. Run the application
+    $java -jar providerdetail.jar
+
+Dockerize your app and run it as a docker container
+1. Create a file with name 'Dockefile' containing parameters you want and put it in the project root
+2. Check to see if you don't already have a image and running container with the same name as you are about to create
+    $docker images 
+    $docker containers
+3. Navigate to project root and build docker image
+    $docker build -t gcr.io/cw-portal-web-1529842378364/providerdetail .
+4. Make sure you see the docker image you just built
+    $docker images
+5. Run the docker image to make sure it is working as expected
+    $docker run --rm -p 8080:8080 gcr.io/cw-portal-web-1529842378364/providerdetail:latest
+    or
+    $docker run -ti --rm -p 8080:8080 gcr.io/cw-portal-web-1529842378364/providerdetail:latest
+
+Push the docker container to GCR (Google Cloud Registry)
+1. $docker push gcr.io/cw-portal-web-1529842378364/providerdetail:latest
+
+Run the GCR image in K8
+set project id 
+gcloud config set project cw-portal-web-1529842378364
+1. Log in to you K8 Cluster
+    $gcloud container clusters get-credentials standard-cluster-gr --zone us-central1-a
+2. Run following K8 commands to see there is nothing running initially
+    $kubectl get pods
+    $kubectl get services
+    $kubectl get deployment
+3. Run the GCR image in K8 cluster
+    $kubectl run providerdetail --image=gcr.io/cw-portal-web-1529842378364/providerdetail:latest --port=8080
+4. Even though your app is running, it can't be accessed from outside, for this expose it with loadbalancer service
+    $kubectl expose deployment providerdetail --type=LoadBalancer
+5. For scaling the App
+    $kubectl scale deployment providerdetail --replicas=3
+6. For making app in accesible scale it to 0
+    $kubectl scale deployment providerdetail --replicas=0
+
